@@ -36,17 +36,19 @@ class LINE:
 
     self.authToken = self.Talk.authToken
     self.cert = self.Talk.cert
-    
+    self._headers = {
+              'X-Line-Application': 'DESKTOPWIN\t5.5.1.1.1590\tWINDOWS_NT\t8.0', 
+              'X-Line-Access': self.authToken, 
+              'User-Agent': 'Line/5.5.1.1.590'
+   }
     self.Poll = Poll(self.authToken)
-    #self.channel = channel.Channel(self.authToken)
-    #self.channel.login()
-
-    #self.mid = self.channel.mid
-    #self.channel_access_token = self.channel.channel_access_token
-    #self.token = self.channel.token
-    #self.obs_token = self.channel.obs_token
-    #self.refresh_token = self.channel.refresh_token
-
+    self.channel = channel.Channel(self.authToken)
+    self.channel.login()
+    self.mid = self.channel.mid
+    self.channel_access_token = self.channel.channel_access_token
+    self.token = self.channel.token
+    self.obs_token = self.channel.obs_token
+    self.refresh_token = self.channel.refresh_token
 
   """User"""
 
