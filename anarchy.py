@@ -78,6 +78,7 @@ A⃣n⃣a⃣r⃣c⃣h⃣y⃣ T⃣e⃣a⃣m⃣ B⃣o⃣t⃣s⃣
 ⇰ Ban @
 ⇰ Unban @
 ⇰ Clear ban
+⇰ Adminlist
 ═══════════════════════
  """
 
@@ -194,6 +195,11 @@ def yt(query):
                     b = a['href'].replace('watch?v=', '')
                     isi += ['youtu.be' + b]
          return isi
+
+def waktu(secs):
+    mins, secs = divmod(secs,60)
+    hours, mins = divmod(mins,60)
+    return '%02d Jam %02d Menit %02d Detik' % (hours, mins, secs)
 
 def sendMessage(to, text, contentMetadata={}, contentType=0):
     mes = Message()
